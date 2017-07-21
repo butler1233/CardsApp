@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardsApp.screens.Main_Menu"
+             Title="Cards" Appearing="ContentPage_Appearing">
+    <ContentPage.Content>
+        <TableView Intent="Menu" HasUnevenRows="True">
+            <TableRoot>
+                <TableSection>
+                    <ViewCell>
+                        <StackLayout>
+                            <Button Text="New Game" x:Name="NewGameButton" Clicked="NewGameButton_Clicked" Margin="0"></Button>
+                            <Button Text="Refresh Board" x:Name="RefreshBoardButton" Clicked="RefreshBoardButton_Clicked" Margin="0"></Button>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Current Game">
+                    <TextCell Text="None" Detail="There is no game in progress"></TextCell>
+                </TableSection>
+                <TableSection Title="Options">
+                    <TextCell Text="Active Players" Detail="Set who is playing in the current session"></TextCell>
+                    <TextCell Text="Recent Games" Detail="See who won the last few games"></TextCell>
+                </TableSection>
+                <TableSection Title="The Board" x:Name="BoardSection">
+                    
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

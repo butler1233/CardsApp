@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardsApp.views.PickerCell" Tapped="ViewCell_Tapped">
+    <StackLayout Orientation="Horizontal" Padding="8">
+        <Label Text="Pack Type" x:Name="TitleLabel" VerticalOptions="Center" Margin="7,0,0,0"/>
+        <Picker Title="Pack Type" HorizontalOptions="EndAndExpand" x:Name="PackPicker" WidthRequest="250">
+        </Picker>
+    </StackLayout>
+</ViewCell>

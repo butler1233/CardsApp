@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardsApp.screens.Keypad" BackgroundImage="DarkBG.jpg">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Grid Margin="0,100,0,0"  HeightRequest="400">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="LightGray" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Label Text="0" x:Name="KeypadValue" TextColor="Black" Margin="8" FontSize="24" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Label>
+                </StackLayout>
+                <Button FontSize="30" Text="1" Grid.Row="1" Grid.Column="0" Clicked="Key_OnClicked" x:Name="Key1"></Button>
+                <Button FontSize="30" Text="2" Grid.Row="1" Grid.Column="1" Clicked="Key_OnClicked" x:Name="Key2"></Button>
+                <Button FontSize="30" Text="3" Grid.Row="1" Grid.Column="2" Clicked="Key_OnClicked" x:Name="Key3"></Button>
+                <Button FontSize="30" Text="4" Grid.Row="2" Grid.Column="0" Clicked="Key_OnClicked" x:Name="Key4"></Button>
+                <Button FontSize="30" Text="5" Grid.Row="2" Grid.Column="1" Clicked="Key_OnClicked" x:Name="Key5"></Button>
+                <Button FontSize="30" Text="6" Grid.Row="2" Grid.Column="2" Clicked="Key_OnClicked" x:Name="Key6"></Button>
+                <Button FontSize="30" Text="7" Grid.Row="3" Grid.Column="0" Clicked="Key_OnClicked" x:Name="Key7"></Button>
+                <Button FontSize="30" Text="8" Grid.Row="3" Grid.Column="1" Clicked="Key_OnClicked" x:Name="Key8"></Button>
+                <Button FontSize="30" Text="9" Grid.Row="3" Grid.Column="2" Clicked="Key_OnClicked" x:Name="Key9"></Button>
+                <Button FontSize="20" Text="Cancel" Grid.Row="4" Grid.Column="0" Clicked="KeyCancel_OnClicked"  x:Name="KeyCancel"></Button>
+                <Button FontSize="30" Text="0" Grid.Row="4" Grid.Column="1" Clicked="Key_OnClicked" x:Name="Key0"></Button>
+                <Button FontSize="20" Text="Enter" Grid.Row="4" Grid.Column="2" Clicked="KeyEnter_OnClicked"  x:Name="KeyEnter"></Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
