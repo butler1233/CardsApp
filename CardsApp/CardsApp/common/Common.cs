@@ -32,7 +32,15 @@ namespace CardsApp.common
 
         internal async static void LoadEverything()
         {
-            Settings.Games = await BasicRequest<List<Classes.Game>>("Games/List");
+            try
+            {
+                Settings.Games = await BasicRequest<List<Classes.Game>>("Games/List");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            
         }
 
 

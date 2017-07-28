@@ -14,12 +14,12 @@
                         </StackLayout>
                     </ViewCell>
                 </TableSection>
-                <TableSection Title="Current Game">
+                <TableSection Title="Current Games" x:Name="CurrentGames" >
                     <TextCell Text="None" Detail="There is no game in progress"></TextCell>
                 </TableSection>
                 <TableSection Title="Options">
                     <TextCell Text="Active Players" Detail="Set who is playing in the current session"></TextCell>
-                    <TextCell Text="Recent Games" Detail="See who won the last few games"></TextCell>
+                    <TextCell Text="Recent Games" Detail="See who won the last few games" Tapped="TextCell_Tapped"></TextCell>
                 </TableSection>
                 <TableSection Title="The Board" x:Name="BoardSection">
                     

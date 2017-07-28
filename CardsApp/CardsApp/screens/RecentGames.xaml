@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardsApp.screens.RecentGames"
+             Title="Last 30 games">
+    <ContentPage.Content>
+        <TableView Intent="Menu">
+            <TableRoot>
+                <TableSection x:Name="gamebuttons"></TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

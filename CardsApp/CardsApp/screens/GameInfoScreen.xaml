@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardsApp.screens.GameInfoScreen">
+    <ContentPage.Content>
+        <TableView Intent="Data" HasUnevenRows="True">
+            <TableRoot>
+                <TableSection x:Name="GameSection" Title="Game Name">
+                    <TextCell x:Name="EntryCell" Text="Entry" Detail="£99999"></TextCell>
+                    <TextCell x:Name="PotCell" Text="Prize pot" Detail="£99999"></TextCell>
+                    <TextCell x:Name="GameIdCell" Text="Game Unique ID" Detail="2147000000"></TextCell>
+                    <TextCell x:Name="Timestamp" Text="Started" Detail="asd"></TextCell>
+                    <TextCell x:Name="CompletedCell" Text="Finished" Detail="Sure"></TextCell>
+                    
+                    <ViewCell x:Name="FinishButtonContainer">
+                        <Button x:Name="FinishButton" Text="Finish Game" Clicked="FinishButton_Clicked"></Button>
+                    </ViewCell>
+                </TableSection>
+                <TableSection x:Name="PlayerList" Title="Playesr"></TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

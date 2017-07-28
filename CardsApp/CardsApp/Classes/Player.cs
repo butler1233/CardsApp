@@ -10,5 +10,7 @@ namespace CardsApp.Classes
         public string Name;
         public bool Active;
         public int CurrentMargin;
+        public bool IsAdmin;
+        public string UserPin;
     }
 }

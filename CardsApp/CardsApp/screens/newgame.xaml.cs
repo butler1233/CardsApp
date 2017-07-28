@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using static CardsApp.JSONInteracts;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -29,15 +29,23 @@ namespace CardsApp.screens
 
             foreach (Player pls in Settings.Players)
             {
-                var sc = new SwitchCell()
+                if (pls.PlayerId == 0)
                 {
-                    BindingContext = pls,
-                    On = pls.Active,
-                    Text = pls.Name
-                };
-                PlayerCells.Add(sc, pls);
-                sc.OnChanged += PlayerToggled;
-                PlayerSection.Add(sc);
+                    pls.Active = false;
+                }
+                else
+                {
+                    var sc = new SwitchCell()
+                    {
+                        BindingContext = pls,
+                        On = pls.Active,
+                        Text = pls.Name
+                    };
+                    PlayerCells.Add(sc, pls);
+                    sc.OnChanged += PlayerToggled;
+                    PlayerSection.Add(sc);
+                }
+                
             }
             
         }
@@ -63,8 +71,28 @@ namespace CardsApp.screens
                 }
                 var selectedGameId = Settings.Games.Single((game) => game.Name == GamePicker.SelectedItem).GameId;
                 var entryCost = Convert.ToInt32(Price.Text);
+                ReturnObject<GameInfo> response;
+                try
+                {
+                    response = await BasicRequest<ReturnObject<GameInfo>>($"NewGame/Register?gameNameId={selectedGameId.ToString()}&entryCost={entryCost.ToString()}", "POST", $"[{String.Join(", ", playingplayers)}]");
+                    if (response.Success)
+                    {
+                        await DisplayAlert("Game Registration", $"Game Registered - ID {response.ReturnData.GameUniqueId} - for £{response.ReturnData.Entry.ToString("F2")} entry with {response.ReturnData.Players.Count} players.", "OK");
+                    }
+                    else
+                    {
+                        await DisplayAlert("Game Registration", $"Exception: {response.ExceptionMessage.ToString()}", "OK");
+                    }                    
+                }
+                catch(Exception ex)
+                {
+                    await DisplayAlert("Game Registration", $"Error: {ex.ToString()}", "OK");
+                }
+                
 
-                await DisplayAlert("tfw no api", $"Game: {selectedGameId.ToString()} Entry: {entryCost.ToString()} Players: [{String.Join(",", playingplayers)}]", "Cool");
+                
+
+                
 
                 //Done, go bak.
                 Navigation.PopAsync();
